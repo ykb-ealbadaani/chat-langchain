@@ -26,6 +26,9 @@ import { ArrowUpIcon } from "@chakra-ui/icons";
 import { Select, Link } from "@chakra-ui/react";
 import { Source } from "./SourceBubble";
 import { apiBaseUrl } from "../utils/constants";
+import Image from "next/image";
+import copilotPic from "../../public/images/ykbcopilotlogo02.png"
+import { relative } from "path";
 
 const MODEL_TYPES = [
   "openai_gpt_3_5_turbo",
@@ -214,14 +217,16 @@ export function ChatWindow(props: { conversationId: string }) {
         alignItems={"center"}
         marginTop={messages.length > 0 ? "" : "64px"}
       >
+        
         <Heading
           fontSize={messages.length > 0 ? "2xl" : "3xl"}
           fontWeight={"medium"}
           mb={1}
           color={"white"}
         >
-          Chat LangChain 🦜🔗
-        </Heading>
+          <Image src={copilotPic} alt="YKB AI Copilot" width={messages.length > 0 ? "30" : "50"} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{objectFit: 'cover', // cover, contain, none width: '30%',height: 'auto',
+         display: "inline-block" }} /> YKB AI Copilot
+        </Heading>        
         {messages.length > 0 ? (
           <Heading fontSize="md" fontWeight={"normal"} mb={1} color={"white"}>
             We appreciate feedback!
